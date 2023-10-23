@@ -1,0 +1,187 @@
+:root{
+    --header-text-color: white;
+    --wara-light-blue: #2fc2c8;
+    --list-text-color: rgb(120, 120, 130);
+    --list-item-hover-bg: #646464;
+    --footer-color: #9696a0;
+    --button-hight: -35px;
+}
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    background-color: var(--header-text-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+main{
+    display: grid;
+    place-content: center;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto auto;
+    grid-template-areas:"head head"
+                        "nav conte";
+}
+footer{
+    & .oben{
+        height: 272px;
+        background-color: var(--footer-color);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & div{
+            height: 170px;
+            width: 172px;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 1rem;
+            border-right: solid 1px white;
+        }
+        & div:last-child{
+            border-right: none;
+        }
+    }
+    & .unten{
+        height: 152px;
+        background-color: var(--wara-light-blue);
+        font-size: 17px;
+        font-weight: 400;
+        display: grid;
+        place-content: center;
+    }
+}
+a, a:visited{
+    text-decoration: none;
+    color: #000;
+}
+.head{
+    grid-area: head;
+    background-image: url(/media/img/header_all.jpg);
+    height: 446px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    & h1{
+        color: var(--header-text-color);
+        font-size: 3.5rem;
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translateY(-50%)
+                    translateX(-50%);
+    }
+    & .create{
+        position: absolute;
+        bottom: var(--button-hight);
+        right: 0;
+        }
+}
+.create{
+    color: #000;
+    background-color: #f38900;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+}
+.side-nav{
+    grid-area: nav;
+    display: flex;
+    min-height: 50vh;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid var(--wara-light-blue);
+    & ul{
+        list-style: none;
+        & li{
+            border-bottom: 2px solid var(--wara-light-blue);
+            min-width: 100px;
+            text-align: center;
+        }
+    }
+}
+.page-content{
+    grid-area: conte;
+    display: flex;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.card{
+    height: 200px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid var(--wara-light-blue);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    & .title{
+        font-size: 2rem;
+        letter-spacing: -0.02rem;
+        font-weight: 600;
+    }
+    & .klasse{
+        font-size: 1.25rem;
+    }
+}
+
+/* #region Editor */
+
+.edit-area{
+    & div{
+        border: 2px solid var(--footer-color);
+        color: black;
+        background-color: hsl(20, 100%, 100%);
+        width: 100vw;
+        height: 85vh;
+        resize: none;
+        padding: 1rem 2rem;
+    }
+    & h1{
+        margin-bottom: 1rem;
+    }
+    & h1:focus-visible{
+        outline: none;
+    }
+    & span:focus-visible{
+        outline: none;
+    }
+}
+
+.tools{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-inline: 2rem;
+    gap: 1.25rem;
+    padding-block: 1rem;
+    & button{
+        font-size: 1.25rem;
+        margin-inline: 0.15rem;
+        height: 28px;
+        width: 35px;
+    }
+}
+
+.save-preview, .save-preview-cancle{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+.save-preview-cancle{
+    width: 100vw;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+
+
+/* #endregion Editor */
