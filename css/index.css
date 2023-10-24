@@ -182,6 +182,29 @@ a, a:visited{
     justify-content: space-between;
 }
 
-
+/*
+Table style with borders
+*/
+table {
+    border-collapse: collapse;
+    border: 2px solid var(--footer-color);
+    width: 100%;
+    margin: 1rem 0;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+th {
+    background-color: var(--footer-color);
+    color: white;
+}
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+    border: 1px solid var(--footer-color);
+}
+tr:hover {
+    background-color: #ddd;
+}
 
 /* #endregion Editor */

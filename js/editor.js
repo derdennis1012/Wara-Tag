@@ -19,10 +19,62 @@ const table =       document.querySelector("#table");
 
 const textArea =    document.querySelector("#textarea");
 
+table.addEventListener('click', (e) => {
+    e.preventDefault();
+    var rows = prompt("Enter number of rows");
+    var columns = prompt("Enter number of columns");
+    if(rows != null && columns != null){
+        var table = document.createElement("table");
+        for(var i = 0; i < rows; i++){
+            var row = document.createElement("tr");
+            for(var j = 0; j < columns; j++){
+                var column = document.createElement("td");
+                column.textContent = "enter text";
+                column.contentEditable = true;
+                row.appendChild(column);
+            }
+            table.appendChild(row);
+        }
+        textArea.appendChild(table);
+    }
+})
 
+image.addEventListener('click', (e) => {
+    e.preventDefault();
+    var link = prompt("Enter image link");
+    if(link != null){
+        var img = document.createElement("img");
+        img.src = link;
+        textArea.appendChild(img);
+    }
+})
+
+textArea.addEventListener('dblclick', (e) => {
+    if(e.target.tagName == "IMG"){
+        e.target.parentNode.removeChild(e.target);
+    }
+    if(e.target.tagName == "TABLE" || e.target.tagName == "TD" || e.target.tagName == "TR"){
+        e.target.parentNode.removeChild(e.target);
+
+    }
+}
+)
 
 var markedElement = null;
 var allSelected = false;
+
+link.addEventListener('click', (e) => {
+    e.preventDefault();
+    var link = prompt("Enter link");
+    var text = prompt("Enter text");
+    if(link != null && text != null){
+        var a = document.createElement("a");
+        a.href = link;
+        a.textContent = text;
+        a.target = "_blank";
+        textArea.appendChild(a);
+    }
+})
 
 textArea.addEventListener('mouseup', (e) => {
     if(window.getSelection().toString() != ""){
